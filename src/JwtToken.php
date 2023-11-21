@@ -117,7 +117,7 @@ class JwtToken
         if (!isset($config['refresh_disable']) || (isset($config['refresh_disable']) && $config['refresh_disable'] === false)) {
             $refreshSecretKey = self::getPrivateKey($config, self::REFRESH_TOKEN);
             $payload['exp'] = time() + $config['refresh_exp'];
-            $newToken['refresh_token'] = self::makeToken($payload['refreshPayload'], $refreshSecretKey, $config['algorithms']);
+            // $newToken['refresh_token'] = self::makeToken($payload['refreshPayload'], $refreshSecretKey, $config['algorithms']);
         }
         if ($config['is_single_device']) {
             $client = $extend['extend']['client'] ?? self::TOKEN_CLIENT_WEB;
